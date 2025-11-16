@@ -22,18 +22,9 @@ Una aplicación simple de clima construida con Next.js que permite a los usuario
 1. Clona o descarga este proyecto
 
 2. Instala las dependencias:
-\`\`\`bash
-npm install
-\`\`\`
+\`\`\`pnpm install\`\`\`
 
 3. Configura tu API key de OpenWeatherMap:
-
-
-**En v0:**
-- Ve a la sección **Vars** en el sidebar izquierdo
-- Agrega la variable de entorno:
-  - Nombre: `OPENWEATHER_API_KEY`
-  - Valor: tu API key de OpenWeatherMap
 
 **En desarrollo local:**
 Crea un archivo `.env.local` en la raíz del proyecto:
@@ -46,33 +37,32 @@ OPENWEATHER_API_KEY=tu_api_key_aqui
 ## Ejecutar la Aplicación
 
 ### Modo Desarrollo
-\`\`\`bash
-npm run dev
+\`\`\`pnpm dev
 \`\`\`
 
 Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
 
 ### Modo Producción
 \`\`\`bash
-npm run build
-npm start
+pnmp build build
+pnpm dev
 \`\`\`
 
 ## Ejecutar las Pruebas
 
 ### Ejecutar todas las pruebas
-\`\`\`bash
-npm test
+\`\`\`
+pnpm test
 \`\`\`
 
 ### Ejecutar pruebas en modo watch
-\`\`\`bash
-npm run test:watch
+\`\`\`
+pnpm test:watch
 \`\`\`
 
 ### Ejecutar pruebas con reporte de cobertura
-\`\`\`bash
-npm run test:coverage
+\`\`\`
+pnpm test:coverage
 \`\`\`
 
 El reporte de cobertura se generará en la carpeta `coverage/`.
