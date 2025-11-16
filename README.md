@@ -1,36 +1,149 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Aplicación del Clima ⛅
 
-## Getting Started
+Una aplicación simple de clima construida con Next.js que permite a los usuarios buscar el clima actual de cualquier ciudad del mundo.
 
-First, run the development server:
+## Características
 
-```bash
+- 🔍 Búsqueda de clima por nombre de ciudad
+- 🌡️ Muestra temperatura actual y sensación térmica
+- 💧 Información de humedad
+- 🌬️ Velocidad del viento
+- ⚠️ Manejo de errores robusto
+- ✅ Pruebas unitarias con 80%+ de cobertura
+- 🎨 Interfaz moderna con Material UI
+
+## Requisitos Previos
+
+- Node.js 18+ instalado
+- Una API key de OpenWeatherMap (gratuita en https://openweathermap.org/api)
+
+## Instalación
+
+1. Clona o descarga este proyecto
+
+2. Instala las dependencias:
+\`\`\`bash
+npm install
+\`\`\`
+
+3. Configura tu API key de OpenWeatherMap:
+
+
+**En v0:**
+- Ve a la sección **Vars** en el sidebar izquierdo
+- Agrega la variable de entorno:
+  - Nombre: `OPENWEATHER_API_KEY`
+  - Valor: tu API key de OpenWeatherMap
+
+**En desarrollo local:**
+Crea un archivo `.env.local` en la raíz del proyecto:
+\`\`\`
+OPENWEATHER_API_KEY=tu_api_key_aqui
+\`\`\`
+
+**Nota de Seguridad:** La API key se maneja de forma segura en el servidor usando Server Actions y nunca se expone al cliente.
+
+## Ejecutar la Aplicación
+
+### Modo Desarrollo
+\`\`\`bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+\`\`\`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Modo Producción
+\`\`\`bash
+npm run build
+npm start
+\`\`\`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Ejecutar las Pruebas
 
-## Learn More
+### Ejecutar todas las pruebas
+\`\`\`bash
+npm test
+\`\`\`
 
-To learn more about Next.js, take a look at the following resources:
+### Ejecutar pruebas en modo watch
+\`\`\`bash
+npm run test:watch
+\`\`\`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Ejecutar pruebas con reporte de cobertura
+\`\`\`bash
+npm run test:coverage
+\`\`\`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+El reporte de cobertura se generará en la carpeta `coverage/`.
 
-## Deploy on Vercel
+## Tecnologías Utilizadas
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Next.js 16** - Framework de React
+- **React 19** - Librería de UI
+- **TypeScript** - Tipado estático
+- **Material UI 6** - Componentes de UI modernos
+- **Emotion** - CSS-in-JS para Material UI
+- **Jest** - Framework de pruebas
+- **React Testing Library** - Pruebas de componentes
+- **OpenWeatherMap API** - Datos del clima
+
+## Estructura del Proyecto
+
+\`\`\`
+├── app/
+│   ├── layout.tsx          # Layout principal
+│   ├── page.tsx            # Página de inicio
+│   ├── theme-provider.tsx  # Configuración de tema Material UI
+│   └── globals.css         # Estilos globales
+├── components/
+│   ├── weather-search.tsx  # Componente principal de búsqueda
+│   └── ui/                 # Componentes de UI (shadcn)
+├── lib/
+│   └── weather-api.ts      # Server Action para API del clima
+├── __tests__/
+│   ├── weather-search.test.tsx  # Pruebas del componente
+│   └── weather-api.test.ts      # Pruebas de la API
+├── jest.config.js          # Configuración de Jest
+├── jest.setup.js           # Setup de Jest
+└── package.json
+\`\`\`
+
+## Pruebas Incluidas
+
+1. ✅ Renderizado correcto del formulario de búsqueda
+2. ✅ Muestra información del clima después de búsqueda exitosa
+3. ✅ Manejo de errores para ciudades inválidas
+4. ✅ Funcionalidad del campo de entrada y botón
+5. ✅ Validación de campo vacío
+6. ✅ Estado de carga durante la búsqueda
+7. ✅ Pruebas de la función de API
+8. ✅ Manejo de errores de API
+
+## Cobertura de Pruebas
+
+El proyecto está configurado para mantener una cobertura mínima del 80% en:
+- Branches (ramas)
+- Functions (funciones)
+- Lines (líneas)
+- Statements (declaraciones)
+
+## Obtener una API Key de OpenWeatherMap
+
+1. Ve a https://openweathermap.org/api
+2. Crea una cuenta gratuita
+3. Ve a "API keys" en tu perfil
+4. Copia tu API key
+5. Agrégala en la sección **Vars** de v0 o en tu archivo `.env.local`
+
+## Despliegue en Vercel
+
+Para desplegar la aplicación:
+
+1. Haz clic en el botón "Publish" en la interfaz de v0
+2. Asegúrate de agregar la variable de entorno `OPENWEATHER_API_KEY` en la configuración de tu proyecto Vercel
+
+## Licencia
+
+MIT
